@@ -78,6 +78,7 @@ class PlatformPromptPlugin(Star):
 
     @filter.on_llm_request()
     async def on_llm_request(self, event: AstrMessageEvent, req: ProviderRequest):
+        """把该机器人的附加提示词追加到系统提示词末尾。"""
         if not self._option("enable", True):
             return
         extra = str(self._bot_conf(event).get(FIELD_PROMPT) or "").strip()
@@ -92,6 +93,7 @@ class PlatformPromptPlugin(Star):
 
     @filter.on_decorating_result()
     async def on_decorating_result(self, event: AstrMessageEvent):
+        """把该机器人回复中的 Markdown 清理为纯文本。"""
         if not self._option("enable", True):
             return
         if not self._bot_conf(event).get(FIELD_CLEAN):
