@@ -10,6 +10,7 @@ from astrbot.api.message_components import Plain
 from astrbot.api.provider import ProviderRequest
 from astrbot.api.star import Context, Star
 
+from .core import hints
 from .core.parts import MARKER, split_parts, truncate
 from .core.plaintext import clean_markdown
 from .core.registry import (
@@ -41,6 +42,12 @@ class ExtraConfigPlugin(Star):
         self.config = config if isinstance(config, dict) else {}
 
     async def initialize(self):
+        try:
+            if not hints.install():
+                logger.warning("机器人页字段说明不可用，字段旁不会显示文案")
+        except Exception:
+            logger.warning("安装机器人页字段说明失败", exc_info=True)
+
         try:
             inject_metadata(self._features())
         except Exception:

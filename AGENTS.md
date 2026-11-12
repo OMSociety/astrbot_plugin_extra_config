@@ -18,6 +18,7 @@ python -m pytest tests -q
 | --- | --- |
 | `main.py` | 插件类 `ExtraConfigPlugin`；`initialize` 注入字段与补默认值；三个钩子 `on_llm_request`、`on_decorating_result`、`after_message_sent` |
 | `core/registry.py` | 机器人页字段注入、机器人条目补默认值、配置备份 |
+| `core/hints.py` | 机器人页字段说明文案；包装核心的元数据转换，把文案还原为字面文本 |
 | `core/plaintext.py` | Markdown 转纯文本 |
 | `core/parts.py` | `[分条]` 标记拆分与单段截断 |
 | `tests/` | 纯函数测试，不依赖宿主 |
@@ -25,7 +26,7 @@ python -m pytest tests -q
 ## 不可违反的约定
 
 1. **中文字段名就是持久化键。** `附加提示词`、`Markdown 格式清理`、`单轮字数上限` 会写进用户配置的 `platform` 条目。改名等于让存量数据失联：必须同步改 `core/registry.py` 的 `FIELD_*`、`FIELD_DEFAULTS`、`FIELD_FEATURES` 与测试，并考虑旧键迁移。
-2. **注入的 metadata 只能有 `type` 与 `default`。** 机器人页不读插件 i18n，写入 `description` 或 `hint` 会让标签显示成裸 i18n 键；不写时标签就是键名本身。
+2. **注入的 metadata 只能有 `type`、`default` 与 `invisible`。** 核心会把 `description`/`hint` 改写成 i18n 键，机器人页只认核心自带的翻译表，直接写文案会被显示成裸键。字段说明统一放在 `core/hints.py` 的 `FIELD_TEXT`，由它在核心转换之后还原为字面文本；`FIELD_TEXT` 的键必须与 `core/registry.py` 的字段名一致。
 3. **字段可见性每次 `initialize()` 重算。** 插件配置的开关决定把哪些字段标成 `invisible`；保存插件配置会热重载插件，靠这次重跑让开关生效，不要缓存到模块级。
 4. **追加到 `req.system_prompt` 的文本必须每个机器人恒定且幂等。** 相同的块不能重复追加；随会话变化的内容不得进系统提示词，会破坏模型侧前缀缓存。
 5. **结果修饰顺序固定：先清理，后拆分。** 链中出现非 `Plain` 组件时放弃拆分；清理改动过文本必须调用 `result.use_markdown_(False)`，否则 QQ 官方适配器仍按 markdown 载荷发送。
