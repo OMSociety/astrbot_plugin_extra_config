@@ -1,7 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_extra_config/main/logo.png" width="256" alt="平台实例附加配置图标" />
-<h1>平台实例附加配置</h1>
+<h1><img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_extra_config/main/logo.png" width="192" alt="平台实例附加配置图标" /><br />平台实例附加配置</h1>
 <p><strong>给每个机器人各配一份表达规范</strong> —— 附加提示词 · Markdown 兜底清理 · 超长回复打回分条</p>
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
