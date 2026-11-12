@@ -161,7 +161,10 @@ class ExtraConfigPlugin(Star):
             return
 
         text = "\n".join((comp.text or "") for comp in chain)
-        if MARKER not in text and len(text) <= limit:
+        if len(text) <= limit:
+            if MARKER in text:
+                for comp in chain:
+                    comp.text = (comp.text or "").replace(MARKER, "").strip()
             return
 
         if MARKER not in text:
