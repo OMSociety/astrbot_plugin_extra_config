@@ -8,10 +8,7 @@ repo: https://github.com/OMSociety/astrbot_plugin_platform_prompt
 display_name: 平台附加提示词
 short_desc: 机器人级附加提示词，Markdown 兜底清理
 
-support_platforms:
-  - aiocqhttp
-  - qq_official
-
 tags:
-  - 提示词
-  - 平台适配
+  - 写提示词
+  - 机器人
+  - 表达

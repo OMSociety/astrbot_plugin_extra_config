@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_platform_prompt/main/logo.png" width="128" alt="平台附加提示词图标">
+
 # 平台附加提示词
 
 为每个机器人单独配置附加提示词；对不支持 Markdown 的平台，把回复兜底清理为纯文本。
