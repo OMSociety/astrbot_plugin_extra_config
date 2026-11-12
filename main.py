@@ -1,4 +1,4 @@
-"""按机器人（平台实例）配置附加提示词，并把 Markdown 回复兜底清理为纯文本。"""
+"""按机器人（平台实例）配置附加提示词、Markdown 清理与单轮字数上限。"""
 
 from __future__ import annotations
 
@@ -21,11 +21,11 @@ from .core.registry import (
 )
 from .core.split import split_text
 
-_EXTRA_PARTS = "_platform_prompt_extra_parts"
+_EXTRA_PARTS = "_extra_config_split_parts"
 _SPLIT_INTERVAL = 0.8
 
 
-class PlatformPromptPlugin(Star):
+class ExtraConfigPlugin(Star):
     def __init__(self, context: Context, config: AstrBotConfig | None = None):
         super().__init__(context)
         self.config = config if isinstance(config, dict) else {}
@@ -46,7 +46,7 @@ class PlatformPromptPlugin(Star):
             logger.warning("补齐机器人配置字段失败", exc_info=True)
 
     async def terminate(self):
-        logger.info("机器人附加提示词插件已停用")
+        logger.info("平台实例附加配置插件已停用")
 
     def _option(self, key: str, default):
         try:

@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_platform_prompt/main/logo.png" width="128" alt="平台附加提示词图标">
+<img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_extra_config/main/logo.png" width="128" alt="平台实例附加配置图标">
 
-# 平台附加提示词
+# 平台实例附加配置
 
-为每个机器人单独配置附加提示词；对不支持 Markdown 的平台，把回复兜底清理为纯文本，超长回复拆成多段发送。
+为每个机器人单独配置附加提示词与字数上限；对不支持 Markdown 的平台，把回复兜底清理为纯文本，超长回复拆成多段发送。
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/OMSociety/astrbot_plugin_platform_prompt/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/OMSociety/astrbot_plugin_extra_config/releases)
 [![AstrBot](https://img.shields.io/badge/AstrBot-4.x-6f42c1.svg)](https://github.com/AstrBotDevs/AstrBot)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/OMSociety/astrbot_plugin_platform_prompt?style=flat)](https://github.com/OMSociety/astrbot_plugin_platform_prompt/stargazers)
-[![Issues](https://img.shields.io/github/issues/OMSociety/astrbot_plugin_platform_prompt?style=flat)](https://github.com/OMSociety/astrbot_plugin_platform_prompt/issues)
+[![Stars](https://img.shields.io/github/stars/OMSociety/astrbot_plugin_extra_config?style=flat)](https://github.com/OMSociety/astrbot_plugin_extra_config/stargazers)
+[![Issues](https://img.shields.io/github/issues/OMSociety/astrbot_plugin_extra_config?style=flat)](https://github.com/OMSociety/astrbot_plugin_extra_config/issues)
 
 </div>
 
