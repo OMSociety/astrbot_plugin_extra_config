@@ -1,0 +1,17 @@
+# 插件元数据。AstrBot 识别插件依赖本文件，四个必填字段缺一不可。
+name: platform_prompt
+desc: 按机器人（平台实例）配置附加提示词，并可把 Markdown 回复兜底清理为纯文本。
+version: 1.0.0
+author: OMSociety
+repo: https://github.com/OMSociety/astrbot_plugin_platform_prompt
+
+display_name: 平台附加提示词
+short_desc: 机器人级附加提示词，Markdown 兜底清理
+
+support_platforms:
+  - aiocqhttp
+  - qq_official
+
+tags:
+  - 提示词
+  - 平台适配

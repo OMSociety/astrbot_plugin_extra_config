@@ -1,0 +1,13 @@
+{
+  "enable": {
+    "description": "启用插件",
+    "type": "bool",
+    "default": true
+  },
+  "debug": {
+    "description": "调试日志",
+    "type": "bool",
+    "default": false,
+    "hint": "在日志中输出附加提示词注入与 Markdown 清理的明细"
+  }
+}
