@@ -1,13 +1,26 @@
 {
-  "enable": {
-    "description": "启用插件",
+  "enable_prompt": {
+    "description": "附加提示词",
     "type": "bool",
-    "default": true
+    "default": true,
+    "hint": "启用后，机器人的「附加提示词」字段出现在机器人页，并在每次请求前追加到系统提示词末尾。"
+  },
+  "enable_clean": {
+    "description": "Markdown 格式清理",
+    "type": "bool",
+    "default": true,
+    "hint": "启用后，机器人的「Markdown 格式清理」开关出现在机器人页，打开时把回复清理为纯文本。"
+  },
+  "enable_split": {
+    "description": "超长回复分条发送",
+    "type": "bool",
+    "default": false,
+    "hint": "启用后，机器人的「单轮字数上限」字段出现在机器人页，超过上限的回复会拆成多段依次发出。"
   },
   "debug": {
     "description": "调试日志",
     "type": "bool",
     "default": false,
-    "hint": "在日志中输出附加提示词注入与 Markdown 清理的明细"
+    "hint": "在日志中输出提示词注入、格式清理与拆分明细。"
   }
 }

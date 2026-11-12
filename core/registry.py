@@ -10,15 +10,24 @@ from astrbot.api import logger
 
 FIELD_PROMPT = "附加提示词"
 FIELD_CLEAN = "Markdown 格式清理"
+FIELD_LIMIT = "单轮字数上限"
 
 FIELD_DEFAULTS: dict[str, Any] = {
     FIELD_PROMPT: "",
     FIELD_CLEAN: False,
+    FIELD_LIMIT: 0,
 }
 
 FIELD_METADATA: dict[str, dict[str, Any]] = {
     FIELD_PROMPT: {"type": "text", "default": ""},
     FIELD_CLEAN: {"type": "bool", "default": False},
+    FIELD_LIMIT: {"type": "int", "default": 0},
+}
+
+FIELD_FEATURES: dict[str, str] = {
+    FIELD_PROMPT: "enable_prompt",
+    FIELD_CLEAN: "enable_clean",
+    FIELD_LIMIT: "enable_split",
 }
 
 
@@ -39,8 +48,11 @@ def _platform_meta() -> dict | None:
     return node if isinstance(node, dict) else None
 
 
-def inject_metadata() -> bool:
-    """把自定义字段写进机器人页的表单元数据，返回是否有改动。"""
+def inject_metadata(enabled: dict[str, bool] | None = None) -> bool:
+    """把自定义字段写进机器人页的表单元数据，返回是否有改动。
+
+    未启用的功能对应字段带 invisible 标记，机器人页不渲染该行。
+    """
     platform_meta = _platform_meta()
     if platform_meta is None:
         return False
@@ -49,8 +61,12 @@ def inject_metadata() -> bool:
     items = platform_meta.get("items")
     if isinstance(items, dict):
         for key, meta in FIELD_METADATA.items():
-            if key not in items:
-                items[key] = dict(meta)
+            item = dict(meta)
+            feature = FIELD_FEATURES[key]
+            if enabled is not None and not enabled.get(feature, True):
+                item["invisible"] = True
+            if items.get(key) != item:
+                items[key] = item
                 changed = True
 
     templates = platform_meta.get("config_template")
