@@ -11,16 +11,16 @@
     "default": true,
     "hint": "启用后，机器人的「Markdown 格式清理」开关出现在机器人页，打开时把回复清理为纯文本。"
   },
-  "enable_split": {
-    "description": "超长回复分条发送",
+  "enable_bounce": {
+    "description": "超长回复打回",
     "type": "bool",
     "default": false,
-    "hint": "启用后，机器人的「单轮字数上限」字段出现在机器人页，超过上限的回复会拆成多段依次发出。"
+    "hint": "启用后，机器人的「单轮字数上限」字段出现在机器人页；超出上限的回复会被打回，要求模型按分条标记重写，最多两次，仍超限则截断。"
   },
   "debug": {
     "description": "调试日志",
     "type": "bool",
     "default": false,
-    "hint": "在日志中输出提示词注入、格式清理与拆分明细。"
+    "hint": "在日志中输出提示词注入、格式清理与打回重写的明细。"
   }
 }

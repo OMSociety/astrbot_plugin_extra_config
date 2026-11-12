@@ -27,7 +27,7 @@ FIELD_METADATA: dict[str, dict[str, Any]] = {
 FIELD_FEATURES: dict[str, str] = {
     FIELD_PROMPT: "enable_prompt",
     FIELD_CLEAN: "enable_clean",
-    FIELD_LIMIT: "enable_split",
+    FIELD_LIMIT: "enable_bounce",
 }
 
 
