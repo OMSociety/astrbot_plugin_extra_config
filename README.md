@@ -3,7 +3,7 @@
 <h1><img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_extra_config/main/logo.png" width="192" alt="平台实例附加配置图标" /><br />平台实例附加配置</h1>
 <p><strong>给每个机器人各配一份表达规范</strong> —— 附加提示词 · Markdown 兜底清理 · 超长回复打回分条</p>
 
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/github/v/tag/OMSociety/astrbot_plugin_extra_config?label=version)](CHANGELOG.md)
 [![AstrBot](https://img.shields.io/badge/AstrBot-4.x-6f42c1.svg)](https://github.com/AstrBotDevs/AstrBot)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/OMSociety/astrbot_plugin_extra_config)](https://github.com/OMSociety/astrbot_plugin_extra_config/stargazers)
