@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 from datetime import datetime
 from typing import Any
@@ -97,8 +98,29 @@ def ensure_bot_defaults(config: dict) -> bool:
     return changed
 
 
+_BACKUP_KEEP = 5
+
+
+def _prune_backups(path: str) -> None:
+    """裁掉同名的旧备份，只保留最近 _BACKUP_KEEP 份。"""
+    folder = os.path.dirname(path) or "."
+    prefix = f"{os.path.basename(path)}.bak-"
+    try:
+        entries = sorted(
+            name for name in os.listdir(folder) if name.startswith(prefix)
+        )
+    except OSError as exc:
+        logger.warning("读取备份目录失败：%s", exc)
+        return
+    for name in entries[:-_BACKUP_KEEP]:
+        try:
+            os.remove(os.path.join(folder, name))
+        except OSError as exc:
+            logger.warning("清理旧备份失败：%s", exc)
+
+
 def backup_config(config: dict) -> None:
-    """写入机器人配置前复制一份原文件。"""
+    """写入机器人配置前复制一份原文件，并裁掉超出保留份数的旧备份。"""
     path = getattr(config, "config_path", "")
     if not path:
         return
@@ -107,3 +129,5 @@ def backup_config(config: dict) -> None:
         shutil.copy2(path, f"{path}.bak-{stamp}")
     except OSError as exc:
         logger.warning("备份机器人配置失败：%s", exc)
+        return
+    _prune_backups(path)

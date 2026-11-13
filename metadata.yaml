@@ -1,7 +1,7 @@
 # 插件元数据。AstrBot 识别插件依赖本文件，四个必填字段缺一不可。
 name: extra_config
 desc: 按机器人（平台实例）配置附加提示词与字数上限，把 Markdown 回复清理为纯文本，超长回复打回重写为多条。
-version: 1.0.0
+version: 1.0.1
 author: OMSociety
 repo: https://github.com/OMSociety/astrbot_plugin_extra_config
 

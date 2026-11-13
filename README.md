@@ -3,7 +3,7 @@
 <h1><img src="https://raw.githubusercontent.com/OMSociety/astrbot_plugin_extra_config/main/logo.png" width="192" alt="平台实例附加配置图标" /><br />平台实例附加配置</h1>
 <p><strong>给每个机器人各配一份表达规范</strong> —— 附加提示词 · Markdown 兜底清理 · 超长回复打回分条</p>
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](CHANGELOG.md)
 [![AstrBot](https://img.shields.io/badge/AstrBot-4.x-6f42c1.svg)](https://github.com/AstrBotDevs/AstrBot)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/OMSociety/astrbot_plugin_extra_config)](https://github.com/OMSociety/astrbot_plugin_extra_config/stargazers)
@@ -77,7 +77,7 @@ AstrBot WebUI → 插件市场 → 搜索「平台实例附加配置」，或把
 
 打开「机器人」页，编辑要配置的机器人，在「接入设置」中填写「附加提示词」，按需打开「Markdown 格式清理」、填写「单轮字数上限」，保存。
 
-> **提示**：首次加载插件时，配置里缺少这些字段的机器人会自动补上默认值，写入前在 `cmd_config.json` 同目录留一份带时间戳的备份。三个字段在机器人页各带一行说明；「单轮字数上限」填 0 表示不限制，不打回。插件页里关掉某个功能的启用开关后，机器人页对应的字段会隐藏。
+> **提示**：首次加载插件时，配置里缺少这些字段的机器人会自动补上默认值，写入前在 `cmd_config.json` 同目录留一份带时间戳的备份，旧备份只保留最近五份。三个字段在机器人页各带一行说明；「单轮字数上限」填 0 表示不限制，不打回。插件页里关掉某个功能的启用开关后，机器人页对应的字段会隐藏。
 
 ## 配置项说明
 
